@@ -214,13 +214,24 @@ form-data
 
 ---
 
-### Sample Output
+### Sample Input and Output
+
+---
+<h4>Signal Input</h4>
+
+<p align="center">
+  <img src="./testing/Signals/trafficmicro6.jpg" width="900">
+</p>
+
+---
+
+<h4>Signal Output</h4>
+
+<p align="center">
+  <img src="./images/signal_output.jpg" width="900">
+</p>
 
 
-```markdown
-<img width="4160" height="3120" alt="signal_output" src="https://github.com/user-attachments/assets/9edf06c3-fcfe-443e-9a1d-c9fe2e774064" />
-
-```
 
 
 
@@ -352,7 +363,7 @@ Copy these coordinates into Postman under
 
 
 ```text
-bus_lane_coordinates
+bus_lane_coordinates : [[297,177],[148,414],[12,771],[369,820],[726,817],[555,361],[437,184],[362,171]]
 ```
 
 
@@ -441,11 +452,26 @@ pm.visualizer.set(
 
 
 
-### Output Image
+### Sample Input and Output
+
+---
+<h4>BusLane Input</h4>
+
+<p align="center">
+  <img src="./testing/BusLane/Testing4.png" width="900">
+</p>
+
+---
+
+<h4>BusLane Output</h4>
+
+<p align="center">
+  <img src="./images/buslane_output.jpg" width="900">
+</p>
 
 
-```md
-![Bus Lane Detection](./images/buslane_output.jpg)
+
+
 ```
 
 
@@ -602,7 +628,7 @@ Field name
 
 
 ```text
-parking_slots
+parking_slots : [{"id":1,"coordinates":[82,782,46,898,146,903,184,784]},{"id":2,"coordinates":[188,784,156,900,267,896,284,782]},{"id":3,"coordinates":[290,783,276,892,396,888,398,774]},{"id":4,"coordinates":[400,774,402,886,525,874,513,766]},{"id":5,"coordinates":[514,762,530,878,652,872,626,754]},{"id":6,"coordinates":[626,754,658,874,784,860,741,746]},{"id":7,"coordinates":[741,746,788,860,908,838,846,734]},{"id":8,"coordinates":[846,734,906,838,1023,819,956,718]},{"id":9,"coordinates":[1032,830,1136,806,1058,706,957,717]},{"id":10,"coordinates":[1056,705,1138,810,1234,789,1150,693]},{"id":11,"coordinates":[1150,693,1246,789,1334,778,1234,684]},{"id":12,"coordinates":[1234,684,1336,780,1431,759,1318,666]}]
 ```
 
 
@@ -700,12 +726,22 @@ pm.visualizer.set(
 
 
 
-### Output Image
+### Sample Input and Output
 
+---
+<h4>Parking Input</h4>
 
-```md
-<img width="4160" height="3120" alt="signal_output" src="https://github.com/user-attachments/assets/9e75569b-e8cd-48a0-b23b-959aa0c1e8e0" />
+<p align="center">
+  <img src="./testing/Parking/image2.jpg" width="900">
+</p>
 
+---
+
+<h4>Parking Output</h4>
+
+<p align="center">
+  <img src="./images/parking_output.jpg" width="900">
+</p>
 ```
 
 
