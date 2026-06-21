@@ -227,20 +227,139 @@ form-data
 
 
 
-# Model 2 : Bus Lane Violation Detection
-
+# Model 2 : Bus Lane Violation Detection 🚌
 
 
 ### Endpoint
-
 
 ```bash
 POST /predict/buslane
 ```
 
 
+## Bus Lane Coordinate Picker
 
-### Postman Setup
+Before testing the API, bus lane coordinates must be generated from the **same image**
+that will be uploaded to the endpoint.
+
+TrafficAI provides an interactive coordinate picker.
+
+Tool Location
+
+```bash
+tools/pick_lane.py
+```
+
+
+### Run Coordinate Picker
+
+
+```bash
+python tools/pick_lane.py testing/BusLane/Testing4.png
+```
+
+
+or
+
+
+```bash
+python tools/pick_lane.py testing/BusLane/Testing4.png --output lanecoordinates.json
+```
+
+
+
+### Controls
+
+
+| Key | Action |
+|------|--------|
+| Left Click | Add Point |
+| U | Undo Last Point |
+| R | Reset Points |
+| S | Save Coordinates |
+| Q | Quit Without Saving |
+
+
+
+### How It Works
+
+
+Open the image.
+
+
+Click points around the bus lane boundary.
+
+
+Recommended:
+
+
+
+* 4 points on the near edge
+* 4 points on the far edge
+
+
+
+Total = **8 Points**
+
+
+
+Press
+
+
+```text
+S
+```
+
+
+to save.
+
+
+
+Coordinates are stored in
+
+
+
+```bash
+lanecoordinates.json
+```
+
+
+
+Example
+
+
+
+```json
+{
+"Testing4.png":
+[
+[297,177],
+[148,414],
+[12,771],
+[369,820],
+[726,817],
+[555,361],
+[437,184],
+[362,171]
+]
+}
+```
+
+
+
+Copy these coordinates into Postman under
+
+
+```text
+bus_lane_coordinates
+```
+
+
+
+---
+
+## Postman Testing
+
 
 
 Method
@@ -261,7 +380,8 @@ http://localhost:8000/predict/buslane
 
 
 
-Body → **form-data**
+Body → form-data
+
 
 
 | Key | Type | Value |
@@ -272,16 +392,9 @@ Body → **form-data**
 
 
 
-Coordinates
 
+Expected Response
 
-```json
-[[297,177],[148,414],[12,771],[369,820],[726,817],[555,361],[437,184],[362,171]]
-```
-
-
-
-### Expected Response
 
 
 ```json
@@ -303,10 +416,13 @@ Coordinates
 
 
 
-### View Annotated Image in Postman
+
+### Visualize Annotated Image
 
 
-Go to **Tests** tab
+
+Tests Tab
+
 
 
 ```javascript
@@ -323,28 +439,16 @@ pm.visualizer.set(
 
 
 
-Click
+
+### Output Image
 
 
-```text
-Visualize
-```
-
-
-to see violation boxes.
-
-
-
----
-
-### Sample Output
-
-
-```markdown
+```md
 ![Bus Lane Detection](images/buslane_output.jpg)
 ```
 
 
+---
 ---
 
 
