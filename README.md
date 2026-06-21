@@ -218,7 +218,7 @@ form-data
 
 
 ```markdown
-![Signal Prediction](images/signal_output.jpg)
+![Signal Prediction](./images/signal_output.jpg)
 ```
 
 
@@ -444,7 +444,7 @@ pm.visualizer.set(
 
 
 ```md
-![Bus Lane Detection](images/buslane_output.jpg)
+![Bus Lane Detection](./images/buslane_output.jpg)
 ```
 
 
@@ -703,7 +703,8 @@ pm.visualizer.set(
 
 
 ```md
-![Parking Detection](images/parking_output.jpg)
+<img width="4160" height="3120" alt="signal_output" src="https://github.com/user-attachments/assets/9e75569b-e8cd-48a0-b23b-959aa0c1e8e0" />
+
 ```
 
 
