@@ -739,7 +739,7 @@ pm.visualizer.set(
 
 ## Author
 
-**Adarsh Kumar Jha**
+**Adarsh Kumar**
 
 B.Tech IT • GGSIPU
 
