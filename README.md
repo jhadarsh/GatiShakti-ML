@@ -449,12 +449,7 @@ pm.visualizer.set(
 
 
 ---
----
-
-
-# Model 3 : Parking Occupancy Detection
-
-
+# Model 3 : Parking Occupancy Detection 🅿️
 
 
 ### Endpoint
@@ -466,11 +461,160 @@ POST /predict/parking
 
 
 
+## Parking Slot Coordinate Picker
 
-### Postman Setup
+
+Parking slots must be selected before testing the API.
+
+
+TrafficAI provides
+
+
+```bash
+tools/pick_slots.py
+```
+
+
+
+---
+
+### Run Coordinate Picker
+
+
+
+```bash
+python tools/pick_slots.py testing/Parking/image1.jpg
+```
+
+
+
+
+### Controls
+
+
+
+| Key | Action |
+|------|--------|
+| Left Click | Add Corner |
+| N | Finish Slot |
+| U | Undo |
+| S | Save All Slots |
+| Q | Quit Without Saving |
+
+
+
+---
+
+
+### How It Works
+
+
+Open parking image.
+
+
+Click around the parking slot boundary.
+
+
+Usually
+
+
+* 4 points per slot
+* Follow slot corners in order
+
+
+
+After selecting a slot
+
+
+
+Press
+
+
+
+```text
+N
+```
+
+
+
+to start selecting the next slot.
+
+
+
+Repeat until all slots are marked.
+
+
+
+Press
+
+
+
+```text
+S
+```
+
+
+
+to save.
+
+
+
+---
+
+Generated file
+
+
+
+```bash
+slots.json
+```
+
+
+
+
+Example
+
+
+
+```json
+[
+{
+"id":1,
+"coordinates":[82,782,46,898,146,903,184,784]
+},
+
+{
+"id":2,
+"coordinates":[188,784,156,900,267,896,284,782]
+}
+]
+```
+
+
+
+Copy the JSON output into Postman.
+
+
+
+Field name
+
+
+
+```text
+parking_slots
+```
+
+
+
+
+---
+
+## Postman Testing
+
 
 
 Method
+
 
 
 ```text
@@ -482,47 +626,29 @@ POST
 URL
 
 
+
 ```bash
 http://localhost:8000/predict/parking
 ```
 
 
 
+
 Body → form-data
+
 
 
 | Key | Type | Value |
 |------|------|-------|
 | parking_image | File | image1.jpg |
 | parking_id | Text | lot-1 |
-| parking_slots | Text | JSON Array |
+| parking_slots | Text | JSON Output |
 
 
 
 
-Parking Slots
+Expected Response
 
-
-
-```json
-[{"id":1,"coordinates":[82,782,46,898,146,903,184,784]},
-{"id":2,"coordinates":[188,784,156,900,267,896,284,782]},
-{"id":3,"coordinates":[290,783,276,892,396,888,398,774]},
-{"id":4,"coordinates":[400,774,402,886,525,874,513,766]},
-{"id":5,"coordinates":[514,762,530,878,652,872,626,754]},
-{"id":6,"coordinates":[626,754,658,874,784,860,741,746]},
-{"id":7,"coordinates":[741,746,788,860,908,838,846,734]},
-{"id":8,"coordinates":[846,734,906,838,1023,819,956,718]},
-{"id":9,"coordinates":[1032,830,1136,806,1058,706,957,717]},
-{"id":10,"coordinates":[1056,705,1138,810,1234,789,1150,693]},
-{"id":11,"coordinates":[1150,693,1246,789,1334,778,1234,684]},
-{"id":12,"coordinates":[1234,684,1336,780,1431,759,1318,666]}]
-```
-
-
-
-
-### Sample Response
 
 
 ```json
@@ -550,10 +676,13 @@ Parking Slots
 
 
 
-### View Annotated Image
+
+### Visualize Annotated Image
 
 
-Postman → Tests
+
+Tests Tab
+
 
 
 ```javascript
@@ -570,13 +699,10 @@ pm.visualizer.set(
 
 
 
-
----
-
-### Sample Output
+### Output Image
 
 
-```markdown
+```md
 ![Parking Detection](images/parking_output.jpg)
 ```
 
