@@ -218,7 +218,8 @@ form-data
 
 
 ```markdown
-![Signal Prediction](./images/signal_output.jpg)
+<img width="4160" height="3120" alt="signal_output" src="https://github.com/user-attachments/assets/9edf06c3-fcfe-443e-9a1d-c9fe2e774064" />
+
 ```
 
 
